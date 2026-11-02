@@ -16,6 +16,8 @@ from src.infra.milvus_client import connect_milvus, disconnect_milvus, check_mil
 from src.infra.neo4j_client import get_neo4j_driver, close_neo4j, check_neo4j_health
 from src.infra.minio_client import ensure_bucket, check_minio_health
 
+from src.modules.chat.router import router as chat_router
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -195,6 +197,8 @@ def register_routers(app: FastAPI) -> None:
             "status": "ok" if all_ok else "degraded",
             "dependencies": deps,
         }
+    
+    app.include_router(chat_router)
 
 
 app = create_app()

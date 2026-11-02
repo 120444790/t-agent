@@ -50,6 +50,14 @@ class Settings(BaseSettings):
     MINIO_BUCKET: str = "tiangong"
     MINIO_SECURE: bool = False
 
+    # ---------- LLM（OpenAI 兼容协议）----------
+    # provider=amd 时走 ChatOpenAI + LLM_BASE_URL；provider=deepseek 时走 ChatDeepSeek
+    LLM_PROVIDER: str = "amd"
+    LLM_BASE_URL: str = "https://developer.amd.com.cn/radeon/api/v1"
+    LLM_MODEL: str = "DeepSeek-V4.1-Flash"
+    LLM_API_KEY: str = ""  # 留空则复用 DEEPSEEK_API_KEY
+    LLM_TEMPERATURE: float = 0.3
+
     # ---------- API Keys ----------
     DEEPSEEK_API_KEY: str = ""
     DASHSCOPE_API_KEY: str = ""

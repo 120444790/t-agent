@@ -23,6 +23,8 @@ class Settings(BaseSettings):
     DB_PASSWORD: str = "npg_Be4MrV5lhfoP"
     DB_NAME: str = "neondb"
 
+    DASHSCOPE_API_KEY = ""
+
     # postgresql://neondb_owner:npg_Be4MrV5lhfoP@ep-square-shadow-b42jzi05-pooler.c-6.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
     @property
     def DATABASE_URL(self) -> str:
